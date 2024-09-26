@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: RabbitMQ
+    ports:
+      - 5672:5672 # AMQP protocol port
+      - 15672:15672 # Management UI port
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - rabbitmq_data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.conf
+  app:
+    container_name: RabbitMQ-Monitor-App
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - RABBITMQ_URL=amqp://debraj:debraj@rabbitmq:5672
+    depends_on:
+      - rabbitmq
+
+volumes:
+  rabbitmq_data:

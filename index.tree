@@ -1,0 +1,42 @@
+rabbitmq-monitor
+|   .env.local
+|   components.json
+|   docker-compose.yml
+|   next-env.d.ts
+|   next.config.mjs
+|   package-lock.json
+|   package.json
+|   postcss.config.mjs
+|   rabbitmq.conf
+|   README.md
+|   tailwind.config.ts
+|   tree.tree
+|   tsconfig.json
+|   
++---app
+|   |   favicon.ico
+|   |   globals.css
+|   |   layout.tsx
+|   |   page.tsx
+|   |   
+|   +---api
+|   |   \---messages
+|   |           route.ts
+|   |           
+|   \---fonts
+|           GeistMonoVF.woff
+|           GeistVF.woff
+|           
++---components
+|   |   RabbitMQMonitor.tsx
+|   |   
+|   \---ui
+|           badge.tsx
+|           button.tsx
+|           card.tsx
+|           table.tsx
+|           
++---lib
+|       rabbitmq.ts
+|       utils.ts
+| 
