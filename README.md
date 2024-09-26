@@ -36,22 +36,22 @@ Before you begin, ensure you have the following installed:
    cd rabbitmq-monitor
    ```
 
-2. Create a `.env.local` file in the root directory with the following content and replace `USER` & `PASS` with actual value:
+2. Create a `.env.local` file in the root directory with the following content:
    ```
-   RABBITMQ_URL=amqp://USER:PASS@localhost:5672
+   RABBITMQ_URL=amqp://debraj:debraj@localhost:5672
    QUEUE_NAMES=queue1,queue2,queue3
    MAX_MESSAGES_PER_QUEUE=20
    ```
 
-3. Create a `rabbitmq.conf` file in the root directory with the following content and replace `USER` & `PASS` with actual value:
+3. Create a `rabbitmq.conf` file in the root directory with the following content:
    ```
    loopback_users = none
    listeners.tcp.default = 5672
    management.tcp.port = 15672
 
    default_vhost = /
-   default_user = USER
-   default_pass = PASS
+   default_user = debraj
+   default_pass = debraj
 
    default_permissions.configure = .*
    default_permissions.read = .*
@@ -70,7 +70,7 @@ Before you begin, ensure you have the following installed:
 
 2. Once the containers are up and running, can access:
    - The RabbitMQ Monitor application at `http://localhost:3000`
-   - The RabbitMQ Management Interface at `http://localhost:15672` (use credentials: USER/PASS)
+   - The RabbitMQ Management Interface at `http://localhost:15672` (use credentials: debraj/debraj)
 
 3. Open browser and navigate to `http://localhost:3000` to view the application.
 
@@ -88,7 +88,7 @@ For development purposes, you can run the Next.js application outside of Docker:
    npm run dev
    ```
 
-Remember to update the `RABBITMQ_URL` in `.env.local` to `amqp://USER:PASS@localhost:5672` when running the app outside of Docker.
+Remember to update the `RABBITMQ_URL` in `.env.local` to `amqp://debraj:debraj@localhost:5672` when running the app outside of Docker.
 
 ## Docker Configuration
 
@@ -144,7 +144,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - RABBITMQ_URL=amqp://USER:PASS@rabbitmq:5672
+      - RABBITMQ_URL=amqp://debraj:debraj@rabbitmq:5672
     depends_on:
       - rabbitmq
 
@@ -171,8 +171,8 @@ This configuration:
 1. Open browser and go to `http://localhost:15672/`
 
 2. Log in with the credentials that used in `rabbitmq.conf`:
-   - Username: USER
-   - Password: PASS
+   - Username: debraj
+   - Password: debraj
 
 3. To publish a test message:
    - Click on the "Queues" tab
