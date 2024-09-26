@@ -3,21 +3,28 @@ services:
   rabbitmq:
     image: rabbitmq:4-management
     container_name: RabbitMQ
+    # expose ports
     ports:
       - 5672:5672 # AMQP protocol port
       - 15672:15672 # Management UI port
+    # mount volumes
     volumes:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - rabbitmq_data:/var/lib/rabbitmq
+    # set environment variables
     environment:
       - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.conf
+
   app:
     container_name: RabbitMQ-Monitor-App
     build: .
+    # expose ports
     ports:
       - 3000:3000
+    # set environment variables
     environment:
       - RABBITMQ_URL=amqp://debraj:debraj@rabbitmq:5672
+    # depends_on service
     depends_on:
       - rabbitmq
 

@@ -2,6 +2,18 @@
 
 RabbitMQ Monitor is a web application built with Next.js that allows to monitor messages from RabbitMQ queues. It provides a user-friendly interface to view messages from multiple queues and refresh the data as needed.
 
+# UI
+
+<p align="center">
+  <img src="./thumbnail/image1.png" width="410"/>
+  <img src="./thumbnail/image2.png" width="410"/>
+  <img src="./thumbnail/image3.png" width="410"/>
+  <img src="./thumbnail/image4.png" width="410"/>
+  <img src="./thumbnail/image5.png" width="410"/>
+  <img src="./thumbnail/image6.png" width="410"/>
+  </p>
+</p>
+
 ## Features
 
 - Real-time monitoring of RabbitMQ queues
